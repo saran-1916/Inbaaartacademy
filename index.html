@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inba Art Academy | Painting, Embroidery & Handwriting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff4757;
+            --secondary: #2f3542;
+            --kids-orange: #ffa502;
+            --premium-gold: #d4af37;
+            --bg: #f1f2f6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Quicksand', sans-serif; background: var(--bg); color: var(--secondary); scroll-behavior: smooth; }
+
+        /* Navigation */
+        nav {
+            background: white; padding: 15px 5%; display: flex; justify-content: space-between;
+            align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--primary); }
+        .logo span { color: var(--secondary); }
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav a { text-decoration: none; color: var(--secondary); font-weight: 600; }
+
+        /* Hero Section - Fixed Blank Issue */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=2071&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; color: white; padding: 20px;
+        }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; max-width: 700px; }
+
+        /* Courses Section */
+        .section { padding: 60px 5%; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h2 { font-size: 2.5rem; color: var(--secondary); font-family: 'Playfair Display', serif; }
+
+        .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .course-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s; position: relative; }
+        .course-card:hover { transform: translateY(-10px); }
+        .course-card img { width: 100%; height: 250px; object-fit: cover; }
+        
+        .tag { position: absolute; top: 15px; right: 15px; padding: 5px 15px; border-radius: 20px; color: white; font-size: 0.8rem; font-weight: bold; }
+        .tag.premium { background: var(--premium-gold); }
+        .tag.kids { background: var(--kids-orange); }
+        .tag.student { background: var(--primary); }
+
+        .course-info { padding: 20px; }
+        .course-info h3 { margin-bottom: 10px; font-size: 1.4rem; }
+
+        /* Login & Student Portal */
+        .login-container { background: #fff; max-width: 900px; margin: 40px auto; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .login-header { background: var(--secondary); color: white; padding: 30px; text-align: center; }
+        .login-body { padding: 40px; text-align: center; }
+        
+        input[type="password"] { padding: 15px; width: 100%; max-width: 300px; border: 2px solid #ddd; border-radius: 10px; font-size: 1rem; margin-bottom: 20px; outline: none; }
+        .btn-unlock { background: var(--primary); color: white; padding: 15px 40px; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; }
+
+        /* HIDDEN EMBROIDERY CONTENT */
+        #embroidery-portal { display: none; padding: 20px; animation: slideUp 0.5s ease-out; }
+        .video-demo { width: 100%; height: 400px; background: #000; border-radius: 15px; margin: 20px 0; overflow: hidden; }
+        .video-demo video { width: 100%; height: 100%; object-fit: cover; }
+
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Footer */
+        footer { background: var(--secondary); color: white; padding: 40px 5%; text-align: center; }
+        footer a { color: var(--primary); text-decoration: none; }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .video-demo { height: 250px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Inba <span>Art Academy</span></div>
+        <ul>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#login">Student Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>Unleash Your Inner Artist</h1>
+        <p>From kids starting their journey to professionals mastering premium techniques. Welcome to Inba Art Academy.</p>
+    </section>
+
+    <!-- COURSES SECTION -->
+    <section class="section" id="courses">
+        <div class="section-title">
+            <h2>Our Creative Classes</h2>
+        </div>
+        <div class="course-grid">
+            <!-- Handwriting -->
+            <div class="course-card">
+                <span class="tag kids">Kids Friendly</span>
+                <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=1972&auto=format&fit=crop" alt="Handwriting">
+                <div class="course-info">
+                    <h3>Beautiful Handwriting</h3>
+                    <p>Fun and engaging cursive and print classes designed specifically for school students.</p>
+                </div>
+            </div>
+            <!-- Painting -->
+            <div class="course-card">
+                <span class="tag premium">Premium</span>
+                <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=1976&auto=format&fit=crop" alt="Painting">
+                <div class="course-info">
+                    <h3>Oil & Acrylic Masterclass</h3>
+                    <p>Advanced techniques in canvas painting for those looking to reach a professional level.</p>
+                </div>
+            </div>
+            <!-- Embroidery -->
+            <div class="course-card">
+                <span class="tag student">Student Favorite</span>
+                <img src="https://images.unsplash.com/photo-1621501103258-3e13e2f71ee3?q=80&w=1974&auto=format&fit=crop" alt="Embroidery">
+                <div class="course-info">
+                    <h3>Traditional Embroidery</h3>
+                    <p>Intricate threadwork and pattern design. (Password Required for Student Access)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INBAA ARTS STUDIO GALLERY -->
+    <section class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <div class="section-title">
+            <h2 style="color: white;">Inbaa Arts Studio Gallery</h2>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">Beautiful creations from our students and courses</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+            <div style="overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s;">
+                <img src="images/image1.jpg" alt="Aari Embroidery Logo" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+            </div>
+            <div style="overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s;">
+                <img src="images/image2.jpg" alt="Aari Embroidery Sample" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+            </div>
+            <div style="overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s;">
+                <img src="images/image3.jpg" alt="Mandala Art Design 1" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+            </div>
+            <div style="overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s;">
+                <img src="images/image5.jpg" alt="Mandala Art Design 2" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+            </div>
+            <div style="overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s;">
+                <img src="images/image6.jpg" alt="Mandala Art Design 3" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+            </div>
+            <div style="overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s;">
+                <img src="images/image7.jpg" alt="Mandala Art Design 4" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+            </div>
+            <div style="overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s;">
+                <img src="images/image8.jpg" alt="Fabric Painting Design 1" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+            </div>
+            <div style="overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s;">
+                <img src="images/image9.jpg" alt="Silk Thread Jewellery 1" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+            </div>
+            <div style="overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s;">
+                <img src="images/image10.jpg" alt="Silk Thread Jewellery 2" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+            </div>
+            <div style="overflow: hidden; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.3s;">
+                <img src="images/image11.jpg" alt="Silk Thread Jewellery 3" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+            </div>
+        </div>
+    </section>
+
+    <!-- LOGIN SECTION -->
+    <section class="section" id="login">
+        <div class="login-container">
+            <div class="login-header">
+                <h2>Student Portal Access</h2>
+                <p>Enter your password to access Embroidery Video Lessons</p>
+            </div>
+            
+            <div class="login-body" id="login-form">
+                <input type="password" id="passInput" placeholder="Enter Password (Hint: success)">
+                <br>
+                <button class="btn-unlock" onclick="checkAccess()">Unlock Lessons</button>
+                <p id="error" style="color: red; margin-top: 15px; display: none;">Incorrect Password. Try again.</p>
+            </div>
+
+            <!-- SUCCESS DASHBOARD (Appears after login) -->
+            <div id="embroidery-portal">
+                <h2 style="color: var(--primary); text-align: center;">Welcome to Embroidery Module 1</h2>
+                <p style="text-align: center;">Watch the professional tutorial below and download your patterns.</p>
+                
+                <div class="video-demo">
+                    <!-- High quality embroidery stock video -->
+                    <video controls poster="https://images.pexels.com/photos/4614234/pexels-photo-4614234.jpeg">
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-close-up-of-a-woman-embroidering-a-fabric-on-a-hoop-41618-large.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <div class="course-grid" style="margin-top: 20px;">
+                    <div style="background: #f9f9f9; padding: 20px; border-radius: 10px;">
+                        <h4>Lesson 1: Needle Basics</h4>
+                        <p>A 15-minute video guide on thread selection.</p>
+                    </div>
+                    <div style="background: #f9f9f9; padding: 20px; border-radius: 10px;">
+                        <h4>Lesson 2: Pattern Transfer</h4>
+                        <p>How to move your design to the fabric.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <h2>Inba Art Academy</h2>
+        <p>Transforming students into artists through professional guidance.</p>
+        <div style="margin: 20px 0;">
+            <p>Contact: <a href="mailto:kamaleshleelavathi@gmail.com">kamaleshleelavathi@gmail.com</a></p>
+        </div>
+        <p>&copy; 2024 Inbaartacademy | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function checkAccess() {
+            const pin = document.getElementById('passInput').value;
+            const loginSection = document.getElementById('login-form');
+            const portal = document.getElementById('embroidery-portal');
+            const error = document.getElementById('error');
+
+            if(pin.toLowerCase() === "success") {
+                loginSection.style.display = "none";
+                portal.style.display = "block";
+                // Scroll to the content automatically
+                portal.scrollIntoView();
+            } else {
+                error.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
