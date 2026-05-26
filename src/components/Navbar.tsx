@@ -92,7 +92,7 @@ export default function Navbar() {
             maxWidth: 1280,
             margin: '0 auto',
             padding: '0 24px',
-            height: 68,
+            height: 90,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',

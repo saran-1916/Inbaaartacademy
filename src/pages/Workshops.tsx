@@ -8,57 +8,57 @@ import { Calendar, Clock, Users, Play, Plus, Minus, CheckCircle, MessageCircle, 
 const UPCOMING = [
   {
     id: 1,
-    title: 'Watercolour Florals Live Cohort',
+    title: 'Aari Embroidery Live Cohort',
     date: new Date('2026-06-10T04:30:00Z'), // 10:00 AM IST = 04:30 UTC
     dateLabel: 'June 10, 2026',
     timeLabel: '10:00 AM IST',
     sessions: 6,
     seats: { filled: 18, total: 30 },
-    price: '₹1,999',
-    colors: ['#E8C9A0', '#C4A882'] as [string, string],
+    price: 'Enquire',
+    colors: ['#F2D0E8', '#C9A0C0'] as [string, string],
   },
   {
     id: 2,
-    title: 'Portrait Sketching Intensive',
+    title: 'Mehndi Design Intensive',
     date: new Date('2026-06-18T13:30:00Z'), // 7:00 PM IST = 13:30 UTC
     dateLabel: 'June 18, 2026',
     timeLabel: '7:00 PM IST',
     sessions: 4,
     seats: { filled: 11, total: 20 },
-    price: '₹1,499',
-    colors: ['#3D2B1F', '#8B5E3C'] as [string, string],
+    price: 'Enquire',
+    colors: ['#4A2A58', '#B8688A'] as [string, string],
   },
   {
     id: 3,
-    title: 'Acrylics for Beginners Live',
+    title: 'Silk Thread Jewellery Live',
     date: new Date('2026-07-02T05:30:00Z'), // 11:00 AM IST = 05:30 UTC
     dateLabel: 'July 2, 2026',
     timeLabel: '11:00 AM IST',
     sessions: 5,
     seats: { filled: 7, total: 25 },
-    price: '₹1,799',
-    colors: ['#D4956A', '#8B5E3C'] as [string, string],
+    price: 'Enquire',
+    colors: ['#C9A0C0', '#B8688A'] as [string, string],
   },
 ]
 
 const PAST = [
   {
     id: 1,
-    title: 'Gouache Basics Cohort',
+    title: 'Fabric Painting Cohort',
     heldOn: 'March 2025',
-    colors: ['#A89080', '#3D2B1F'] as [string, string],
+    colors: ['#BCA0B8', '#4A2A58'] as [string, string],
   },
   {
     id: 2,
-    title: 'Monochrome Landscapes',
+    title: 'Bridal Mehndi Workshop',
     heldOn: 'January 2025',
-    colors: ['#C4A882', '#8B5E3C'] as [string, string],
+    colors: ['#C9A0C0', '#B8688A'] as [string, string],
   },
   {
     id: 3,
-    title: 'Abstract Expressions',
+    title: 'Artificial Flowers Masterclass',
     heldOn: 'November 2024',
-    colors: ['#E8C9A0', '#D4956A'] as [string, string],
+    colors: ['#F2D0E8', '#E8A8CC'] as [string, string],
   },
 ]
 
@@ -275,7 +275,7 @@ function WorkshopCard({ w }: { w: typeof UPCOMING[0] }) {
         border: '1px solid var(--color-brand-secondary)',
         display: 'flex',
         flexDirection: 'column',
-        boxShadow: '0 2px 12px rgba(61,43,31,0.06)',
+        boxShadow: '0 2px 12px rgba(74,42,88,0.06)',
       }}
     >
       {/* Thumbnail */}
@@ -436,16 +436,19 @@ function WorkshopCard({ w }: { w: typeof UPCOMING[0] }) {
         <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: '0.5rem', borderTop: '1px solid var(--color-brand-secondary)' }}>
           <span
             style={{
-              fontFamily: '"Cormorant Garamond", Georgia, serif',
-              fontSize: '1.4rem',
-              fontWeight: 600,
-              color: 'var(--color-brand-dark)',
+              fontFamily: '"DM Sans", sans-serif',
+              fontSize: '0.85rem',
+              fontWeight: 500,
+              color: 'var(--color-brand-accent)',
+              background: 'var(--color-brand-secondary)',
+              padding: '4px 12px',
+              borderRadius: 6,
             }}
           >
-            {w.price}
+            {w.price} for pricing
           </span>
-          <motion.button
-            whileTap={{ scale: 0.96 }}
+          <a
+            href="/contact"
             style={{
               padding: '0.55rem 1.2rem',
               background: 'var(--color-brand-primary)',
@@ -457,7 +460,9 @@ function WorkshopCard({ w }: { w: typeof UPCOMING[0] }) {
               fontSize: '0.875rem',
               color: 'var(--color-brand-dark)',
               letterSpacing: '0.02em',
+              textDecoration: 'none',
               transition: 'background 0.18s ease',
+              display: 'inline-block',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = 'var(--color-brand-accent)'
@@ -468,8 +473,8 @@ function WorkshopCard({ w }: { w: typeof UPCOMING[0] }) {
               e.currentTarget.style.color = 'var(--color-brand-dark)'
             }}
           >
-            Register Now
-          </motion.button>
+            Enquire →
+          </a>
         </div>
       </div>
     </motion.div>
@@ -710,10 +715,10 @@ function Hero() {
         style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0 }}
       >
         {[
-          { cx: '10%', cy: '20%', rx: 260, ry: 180, color: '#C4A882', op: 0.07, anim: 'blob-drift-1', dur: '28s', delay: '0s' },
-          { cx: '85%', cy: '15%', rx: 200, ry: 150, color: '#E8C9A0', op: 0.05, anim: 'blob-drift-2', dur: '34s', delay: '-6s' },
-          { cx: '60%', cy: '75%', rx: 240, ry: 160, color: '#D4956A', op: 0.06, anim: 'blob-drift-3', dur: '24s', delay: '-12s' },
-          { cx: '20%', cy: '80%', rx: 180, ry: 130, color: '#C4A882', op: 0.04, anim: 'blob-drift-4', dur: '30s', delay: '-4s' },
+          { cx: '10%', cy: '20%', rx: 260, ry: 180, color: '#C9A0C0', op: 0.07, anim: 'blob-drift-1', dur: '28s', delay: '0s' },
+          { cx: '85%', cy: '15%', rx: 200, ry: 150, color: '#F2D0E8', op: 0.05, anim: 'blob-drift-2', dur: '34s', delay: '-6s' },
+          { cx: '60%', cy: '75%', rx: 240, ry: 160, color: '#E8A8CC', op: 0.06, anim: 'blob-drift-3', dur: '24s', delay: '-12s' },
+          { cx: '20%', cy: '80%', rx: 180, ry: 130, color: '#C9A0C0', op: 0.04, anim: 'blob-drift-4', dur: '30s', delay: '-4s' },
         ].map((b, i) => (
           <svg key={i} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}>
             <defs>
@@ -750,7 +755,7 @@ function Hero() {
             fontWeight: 500,
           }}
         >
-          LIVE WITH KAMALI
+          LIVE CLASSES WITH KAMALI
         </motion.p>
 
         <motion.h1
@@ -767,7 +772,7 @@ function Hero() {
             lineHeight: 1.15,
           }}
         >
-          Join Live. Paint Together.
+          Join Live. Create Together.
         </motion.h1>
 
         <motion.p
@@ -784,7 +789,7 @@ function Hero() {
           }}
         >
           Fixed schedules, real-time feedback, replays included,
-          and a community that paints alongside you.
+          and a creative community that learns alongside you.
         </motion.p>
 
         {/* Stats */}
@@ -922,7 +927,7 @@ export default function Workshops() {
                   borderRadius: 8,
                   overflow: 'hidden',
                   border: '1px solid var(--color-brand-secondary)',
-                  boxShadow: '0 2px 8px rgba(61,43,31,0.05)',
+                  boxShadow: '0 2px 8px rgba(74,42,88,0.05)',
                 }}
               >
                 <PastThumbnail colors={p.colors} />
@@ -970,6 +975,114 @@ export default function Workshops() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── YouTube Free Classes ── */}
+      <section
+        style={{
+          padding: '5rem 24px',
+          background: 'var(--color-brand-dark)',
+          position: 'relative',
+          overflow: 'hidden',
+          textAlign: 'center',
+        }}
+      >
+        {/* Background blobs */}
+        {[
+          { cx: '15%', cy: '50%', rx: 200, ry: 150, op: 0.05 },
+          { cx: '85%', cy: '40%', rx: 180, ry: 130, op: 0.04 },
+        ].map((b, i) => (
+          <svg key={i} aria-hidden="true" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}>
+            <defs><filter id={`yt-blur-${i}`}><feGaussianBlur stdDeviation="30" /></filter></defs>
+            <ellipse cx={b.cx} cy={b.cy} rx={b.rx} ry={b.ry} fill="var(--color-brand-primary)" opacity={b.op} filter={`url(#yt-blur-${i})`} />
+          </svg>
+        ))}
+
+        <div style={{ position: 'relative', zIndex: 1, maxWidth: 640, margin: '0 auto' }}>
+          {/* YouTube icon */}
+          <div style={{ marginBottom: '1.25rem' }}>
+            <svg width="52" height="52" viewBox="0 0 24 24" fill="#FF0000" aria-hidden="true" style={{ opacity: 0.9 }}>
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
+          </div>
+
+          <p
+            style={{
+              fontFamily: '"DM Sans", sans-serif',
+              fontSize: '0.72rem',
+              letterSpacing: '0.25em',
+              textTransform: 'uppercase',
+              color: 'var(--color-brand-primary)',
+              marginBottom: '0.75rem',
+              fontWeight: 500,
+            }}
+          >
+            Free on YouTube
+          </p>
+
+          <h2
+            style={{
+              fontFamily: '"Cormorant Garamond", Georgia, serif',
+              fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
+              fontWeight: 300,
+              color: 'var(--color-brand-light)',
+              letterSpacing: '0.02em',
+              marginBottom: '1rem',
+              lineHeight: 1.2,
+            }}
+          >
+            Watch Free Classes on Our Channel
+          </h2>
+
+          <p
+            style={{
+              fontFamily: '"DM Sans", sans-serif',
+              fontSize: '1rem',
+              color: 'rgba(253,244,250,0.65)',
+              lineHeight: 1.7,
+              marginBottom: '2rem',
+              maxWidth: 480,
+              margin: '0 auto 2rem',
+            }}
+          >
+            Get a taste of Kamali's teaching style with free beginner lessons on our YouTube channel — Aari embroidery, mehndi, jewellery making and more.
+          </p>
+
+          <a
+            href="https://www.youtube.com/channel/UCrEWvq9rL7-4Wn6OEhBdw5g"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.6rem',
+              padding: '0.85rem 2rem',
+              borderRadius: 4,
+              background: '#FF0000',
+              border: 'none',
+              fontFamily: '"DM Sans", sans-serif',
+              fontWeight: 500,
+              fontSize: '0.95rem',
+              color: '#fff',
+              textDecoration: 'none',
+              letterSpacing: '0.02em',
+              transition: 'opacity 0.2s ease, transform 0.15s ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.opacity = '0.88'
+              e.currentTarget.style.transform = 'translateY(-2px)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.opacity = '1'
+              e.currentTarget.style.transform = 'translateY(0)'
+            }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
+            Visit Our YouTube Channel
+          </a>
         </div>
       </section>
 

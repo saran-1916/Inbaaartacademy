@@ -55,9 +55,9 @@ function BrushstrokeUnderline() {
 }
 
 const artThumbnails = [
-  { seed: 'watercolour-art', rotate: '-4deg', arcY: '-20px', delay: '0s', dur: '3.6s' },
-  { seed: 'acrylic-paint', rotate: '1.5deg', arcY: '8px', delay: '0.8s', dur: '4.2s' },
-  { seed: 'sketch-portrait', rotate: '3.5deg', arcY: '-14px', delay: '1.5s', dur: '3.9s' },
+  { src: '/images/Aari Embroidery.png',      alt: 'Aari Embroidery',      rotate: '-4deg',  arcY: '-20px', delay: '0s',   dur: '3.6s' },
+  { src: '/images/Fabric Painting.png',       alt: 'Fabric Painting',      rotate: '1.5deg', arcY: '8px',   delay: '0.8s', dur: '4.2s' },
+  { src: '/images/Silk Thread Jewellery.png', alt: 'Silk Thread Jewellery', rotate: '3.5deg', arcY: '-14px', delay: '1.5s', dur: '3.9s' },
 ]
 
 function HeroSection() {
@@ -96,7 +96,7 @@ function HeroSection() {
         >
           <path
             d="M450 70 C610 50 790 145 825 305 C860 460 755 625 595 665 C435 705 245 645 155 500 C65 360 75 175 200 105 C295 55 345 88 450 70 Z"
-            fill="#C4A882"
+            fill="#C9A0C0"
           />
         </svg>
         <svg
@@ -114,7 +114,7 @@ function HeroSection() {
         >
           <path
             d="M300 45 C440 25 580 130 570 270 C560 415 435 510 285 498 C135 486 25 380 50 235 C75 95 185 62 300 45 Z"
-            fill="#8B5E3C"
+            fill="#B8688A"
           />
         </svg>
         <svg
@@ -132,7 +132,7 @@ function HeroSection() {
         >
           <path
             d="M250 40 C370 20 470 110 460 230 C450 355 340 410 220 400 C100 390 20 300 30 185 C42 70 145 58 250 40 Z"
-            fill="#C4A882"
+            fill="#C9A0C0"
           />
         </svg>
       </div>
@@ -162,7 +162,7 @@ function HeroSection() {
             margin: '0 0 1.5rem',
           }}
         >
-          Traditional Arts · Modern Learning
+          Handmade Arts · Creative Learning
         </motion.p>
 
         {/* Heading with word-by-word animation */}
@@ -211,7 +211,7 @@ function HeroSection() {
             lineHeight: 1.72,
           }}
         >
-          Learn watercolour, acrylics & sketching with Kamali — guided practice that builds a lifelong art habit.
+          Learn Aari embroidery, fabric painting, silk thread jewellery, mehndi & more — step-by-step guidance for beginners, homemakers and art lovers.
         </motion.p>
 
         {/* CTA buttons */}
@@ -256,10 +256,10 @@ function HeroSection() {
               e.currentTarget.style.transform = 'translateY(0)'
             }}
           >
-            Start Free — 3 Lessons
+            Explore Courses
           </Link>
           <Link
-            to="/courses"
+            to="/contact"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -286,8 +286,44 @@ function HeroSection() {
               e.currentTarget.style.transform = 'translateY(0)'
             }}
           >
-            Explore Courses →
+            Contact Us →
           </Link>
+          <a
+            href="https://www.youtube.com/channel/UCrEWvq9rL7-4Wn6OEhBdw5g"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '0.45rem',
+              height: 48,
+              padding: '0 28px',
+              borderRadius: 20,
+              background: 'transparent',
+              color: '#FF0000',
+              fontFamily: '"DM Sans", sans-serif',
+              fontSize: 15,
+              fontWeight: 500,
+              textDecoration: 'none',
+              border: '0.5px solid rgba(255,0,0,0.35)',
+              transition: 'background 0.2s, transform 0.15s',
+              letterSpacing: '0.01em',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'rgba(255,0,0,0.06)'
+              e.currentTarget.style.transform = 'translateY(-2px)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'transparent'
+              e.currentTarget.style.transform = 'translateY(0)'
+            }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#FF0000" aria-hidden="true">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
+            Free Classes
+          </a>
         </motion.div>
 
         {/* Floating art thumbnails in arc */}
@@ -314,13 +350,13 @@ function HeroSection() {
                   borderRadius: 16,
                   overflow: 'hidden',
                   boxShadow:
-                    '0 8px 32px rgba(61,43,31,0.14), 0 2px 8px rgba(61,43,31,0.08)',
+                    '0 8px 32px rgba(74,42,88,0.14), 0 2px 8px rgba(74,42,88,0.08)',
                   animation: `bob-thumbnail ${t.dur} ease-in-out ${t.delay} infinite`,
                 }}
               >
                 <img
-                  src={`https://picsum.photos/seed/${t.seed}/360/270`}
-                  alt={`Artwork sample ${i + 1}`}
+                  src={t.src}
+                  alt={t.alt}
                   style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                   loading="lazy"
                 />
@@ -340,10 +376,10 @@ type Stat =
   | { kind: 'text'; display: string; label: string }
 
 const STATS: Stat[] = [
-  { kind: 'number', value: 50, suffix: '+', label: 'Students' },
-  { kind: 'text', display: 'India 🇮🇳', label: 'Based in' },
-  { kind: 'number', value: 3, suffix: '', label: 'Years of Teaching' },
-  { kind: 'number', value: 48, suffix: '-hr', label: 'Refund Policy' },
+  { kind: 'number', value: 50, suffix: '+', label: 'Students Taught' },
+  { kind: 'number', value: 5, suffix: '', label: 'Courses Offered' },
+  { kind: 'text', display: 'India', label: 'Based in' },
+  { kind: 'text', display: 'Both', label: 'Online & Offline' },
 ]
 
 function StatCounter({ value, suffix }: { value: number; suffix: string }) {
@@ -401,7 +437,7 @@ function StatsBar() {
             style={{
               textAlign: 'center',
               padding: '8px 16px',
-              borderLeft: i > 0 ? '0.5px solid rgba(196,168,130,0.35)' : 'none',
+              borderLeft: i > 0 ? '0.5px solid rgba(201,160,192,0.35)' : 'none',
             }}
           >
             <div
@@ -480,8 +516,8 @@ function PaletteIcon() {
         opacity="0.5"
       />
       <circle cx="28" cy="35" r="4" fill="#C4A882" />
-      <circle cx="40" cy="26" r="4" fill="#8B5E3C" />
-      <circle cx="53" cy="35" r="4" fill="#3D2B1F" opacity="0.75" />
+      <circle cx="40" cy="26" r="4" fill="#B8688A" />
+      <circle cx="53" cy="35" r="4" fill="#4A2A58" opacity="0.75" />
       <circle cx="47" cy="47" r="3.5" fill="var(--color-brand-accent)" opacity="0.65" />
     </svg>
   )
@@ -490,24 +526,24 @@ function PaletteIcon() {
 const COURSE_PATHS = [
   {
     Icon: BrushIcon,
-    name: 'Sketching',
+    name: 'Aari Embroidery',
     description:
-      'Master line, form and shading. Build confidence from basic shapes to expressive portraits and figure studies.',
-    splashColor: 'rgba(139,94,60,0.08)',
+      'Learn traditional and modern Aari work — from basic stitches to bridal blouse designs with beads, stones and professional finishing.',
+    splashColor: 'rgba(184,104,138,0.08)',
   },
   {
     Icon: WaterDropIcon,
-    name: 'Watercolour',
+    name: 'Fabric Painting',
     description:
-      'Explore the magic of wash, bloom and wet-on-wet. Paint landscapes and florals with effortless fluidity.',
-    splashColor: 'rgba(196,168,130,0.1)',
+      'Create beautiful hand-painted designs on sarees and fabric using traditional & modern patterns with brush and shading techniques.',
+    splashColor: 'rgba(201,160,192,0.1)',
   },
   {
     Icon: PaletteIcon,
-    name: 'Acrylics',
+    name: 'Silk Thread Jewellery',
     description:
-      'Work with bold colour and texture. Learn layering, blending and impasto for paintings that truly pop.',
-    splashColor: 'rgba(61,43,31,0.06)',
+      'Make trendy handmade silk thread bangles, earrings, jhumkas, necklaces and full bridal sets with stone and bead decoration.',
+    splashColor: 'rgba(74,42,88,0.06)',
   },
 ]
 
@@ -523,7 +559,7 @@ function PathCard({ path }: { path: (typeof COURSE_PATHS)[0] }) {
       style={{
         background: 'white',
         borderRadius: 20,
-        border: `0.5px solid rgba(196,168,130,${hovered ? 0.5 : 0.2})`,
+        border: `0.5px solid rgba(201,160,192,${hovered ? 0.5 : 0.2})`,
         padding: '2.5rem 2rem',
         display: 'flex',
         flexDirection: 'column',
@@ -609,7 +645,7 @@ function CoursePaths() {
             letterSpacing: '0.03em',
           }}
         >
-          Choose Your Creative Path
+          Our Creative Courses
         </h2>
       </SectionReveal>
       <SectionReveal delay={0.1}>
@@ -686,7 +722,7 @@ function FreeLessonsCTA() {
                 marginBottom: '1rem',
               }}
             >
-              No card required
+              Online & Offline Classes
             </p>
             <h2
               style={{
@@ -699,7 +735,7 @@ function FreeLessonsCTA() {
                 lineHeight: 1.2,
               }}
             >
-              Begin with 3 Free Lessons
+              Learn from Home or In Person
             </h2>
             <p
               style={{
@@ -711,11 +747,10 @@ function FreeLessonsCTA() {
                 margin: '0 auto 2rem',
               }}
             >
-              Try before you commit. Three beginner lessons across sketching, acrylics and colour theory —
-              completely free.
+              Join live interactive online classes or attend in person — with flexible timings, personal attention and a creative, friendly environment.
             </p>
             <Link
-              to="/courses"
+              to="/contact"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -742,7 +777,7 @@ function FreeLessonsCTA() {
                 e.currentTarget.style.transform = 'translateY(0)'
               }}
             >
-              Start Free Now
+              Enquire Now
             </Link>
           </div>
 
@@ -785,10 +820,10 @@ function FreeLessonsCTA() {
 // ─── Featured Courses ─────────────────────────────────────────────────────────
 
 const FEATURED_COURSES = [
-  { title: 'Sketching for Beginners', subtitle: 'Pencil & Pen', level: 'Beginner', price: '₹999', seed: 'sketch-begin' },
-  { title: 'Watercolour Basics', subtitle: 'Colour & Wash', level: 'Beginner', price: '₹999', seed: 'watercolour-wash' },
-  { title: 'Acrylic Florals', subtitle: 'Layer & Bloom', level: 'Intermediate', price: '₹999', seed: 'acrylic-flora' },
-  { title: 'Portrait Sketching', subtitle: 'Faces & Features', level: 'Intermediate', price: '₹999', seed: 'portrait-face' },
+  { title: 'Aari Embroidery Classes', subtitle: 'Basic to Bridal', level: 'Beginner', price: 'Enquire', seed: 'aari-embroidery', image: '/images/Aari Embroidery.png' },
+  { title: 'Fabric Painting Classes', subtitle: 'Saree & Dress Design', level: 'Beginner', price: 'Enquire', seed: 'fabric-painting', image: '/images/Fabric Painting.png' },
+  { title: 'Silk Thread Jewellery', subtitle: 'Bangles, Earrings & Sets', level: 'Beginner', price: 'Enquire', seed: 'silk-jewellery', image: '/images/Silk Thread Jewellery.png' },
+  { title: 'Mehndi Classes', subtitle: 'Arabic to Bridal', level: 'Beginner', price: 'Enquire', seed: 'mehndi-art', image: '/images/Mehndi.png' },
 ]
 
 function FeaturedCard({ course }: { course: (typeof FEATURED_COURSES)[0] }) {
@@ -802,10 +837,10 @@ function FeaturedCard({ course }: { course: (typeof FEATURED_COURSES)[0] }) {
         borderRadius: 16,
         overflow: 'hidden',
         background: 'white',
-        border: '0.5px solid rgba(196,168,130,0.2)',
+        border: '0.5px solid rgba(201,160,192,0.2)',
         boxShadow: hovered
-          ? '0 12px 40px rgba(61,43,31,0.13)'
-          : '0 2px 12px rgba(61,43,31,0.06)',
+          ? '0 12px 40px rgba(74,42,88,0.13)'
+          : '0 2px 12px rgba(74,42,88,0.07)',
         transition: 'box-shadow 0.3s',
         scrollSnapAlign: 'start',
       }}
@@ -814,7 +849,7 @@ function FeaturedCard({ course }: { course: (typeof FEATURED_COURSES)[0] }) {
     >
       <div style={{ height: 160, overflow: 'hidden', position: 'relative' }}>
         <img
-          src={`https://picsum.photos/seed/${course.seed}/560/320`}
+          src={course.image}
           alt={course.title}
           style={{
             width: '100%',
@@ -830,7 +865,7 @@ function FeaturedCard({ course }: { course: (typeof FEATURED_COURSES)[0] }) {
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'rgba(196,168,130,0.16)',
+            background: 'rgba(201,160,192,0.16)',
             opacity: hovered ? 1 : 0,
             transition: 'opacity 0.3s',
             pointerEvents: 'none',
@@ -859,21 +894,6 @@ function FeaturedCard({ course }: { course: (typeof FEATURED_COURSES)[0] }) {
           >
             {course.title}
           </h3>
-          <span
-            style={{
-              fontFamily: '"DM Sans", sans-serif',
-              fontSize: 11,
-              color: 'var(--color-brand-accent)',
-              background: 'var(--color-brand-secondary)',
-              padding: '3px 8px',
-              borderRadius: 4,
-              whiteSpace: 'nowrap',
-              fontWeight: 500,
-              flexShrink: 0,
-            }}
-          >
-            {course.level}
-          </span>
         </div>
         <p
           style={{
@@ -888,16 +908,19 @@ function FeaturedCard({ course }: { course: (typeof FEATURED_COURSES)[0] }) {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <span
             style={{
-              fontFamily: '"Cormorant Garamond", Georgia, serif',
-              fontSize: 22,
-              color: 'var(--color-brand-dark)',
-              fontWeight: 600,
+              fontFamily: '"DM Sans", sans-serif',
+              fontSize: 12,
+              fontWeight: 500,
+              padding: '3px 10px',
+              borderRadius: 6,
+              background: 'var(--color-brand-secondary)',
+              color: 'var(--color-brand-accent)',
             }}
           >
-            {course.price}
+            Enquire for pricing
           </span>
           <Link
-            to="/courses"
+            to="/contact"
             style={{
               fontFamily: '"DM Sans", sans-serif',
               fontSize: 13,
@@ -906,7 +929,7 @@ function FeaturedCard({ course }: { course: (typeof FEATURED_COURSES)[0] }) {
               fontWeight: 500,
             }}
           >
-            View Course →
+            Enquire →
           </Link>
         </div>
       </div>
@@ -957,12 +980,12 @@ function FeaturedCourses() {
 // ─── Testimonials ─────────────────────────────────────────────────────────────
 
 const TESTIMONIALS = [
-  { quote: "Kamali's teaching made watercolour feel effortless for the first time.", name: 'Priya', location: 'Chennai' },
-  { quote: "I never thought I could sketch faces — this course changed everything.", name: 'Ravi', location: 'Bangalore' },
-  { quote: 'The pace is perfect. Never overwhelming, always inspiring.', name: 'Ananya', location: 'Mumbai' },
-  { quote: "Three months in and I've already finished 8 paintings!", name: 'Sunita', location: 'Delhi' },
-  { quote: "Best art investment I've made. Worth every rupee.", name: 'Deepa', location: 'Hyderabad' },
-  { quote: "The free lessons alone were better than paid courses I've tried.", name: 'Meena', location: 'Coimbatore' },
+  { quote: "The Aari embroidery classes were so detailed and easy to follow — I made my first blouse design!", name: 'Priya', location: 'Chennai' },
+  { quote: "I started with zero experience in mehndi. Now I do bridal mehndi for family and friends.", name: 'Kavitha', location: 'Bangalore' },
+  { quote: 'The pace is perfect. Never overwhelming, always inspiring. The teacher gives personal attention.', name: 'Ananya', location: 'Mumbai' },
+  { quote: "The silk thread jewellery class was amazing — I made a full bridal set within a month!", name: 'Sunita', location: 'Delhi' },
+  { quote: "Best learning experience. The fabric painting course helped me start my own small business.", name: 'Deepa', location: 'Hyderabad' },
+  { quote: "Online classes were so convenient and the live demonstrations made everything crystal clear.", name: 'Meena', location: 'Coimbatore' },
 ]
 
 function TestimonialCard({ t }: { t: (typeof TESTIMONIALS)[0] }) {
@@ -971,7 +994,7 @@ function TestimonialCard({ t }: { t: (typeof TESTIMONIALS)[0] }) {
       style={{
         background: 'white',
         borderRadius: 16,
-        border: '0.5px solid rgba(196,168,130,0.25)',
+        border: '0.5px solid rgba(201,160,192,0.25)',
         padding: '20px 24px',
         minWidth: 280,
         maxWidth: 320,

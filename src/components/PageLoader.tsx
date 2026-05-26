@@ -3,11 +3,11 @@ import Logo from './Logo'
 
 // Five warm-toned blobs that expand from centre like a watercolour wash
 const BLOBS = [
-  { cx: '50%', cy: '50%', rx: '38%', ry: '32%', fill: '#C4A882', delay: 0    },
-  { cx: '46%', cy: '54%', rx: '30%', ry: '26%', fill: '#E8C9A0', delay: 0.12 },
-  { cx: '55%', cy: '44%', rx: '26%', ry: '34%', fill: '#D4956A', delay: 0.22 },
-  { cx: '52%', cy: '58%', rx: '42%', ry: '22%', fill: '#F0E6D8', delay: 0.32 },
-  { cx: '42%', cy: '46%', rx: '22%', ry: '28%', fill: '#8B5E3C', delay: 0.44 },
+  { cx: '50%', cy: '50%', rx: '38%', ry: '32%', fill: '#C9A0C0', delay: 0    },
+  { cx: '46%', cy: '54%', rx: '30%', ry: '26%', fill: '#F2D0E8', delay: 0.12 },
+  { cx: '55%', cy: '44%', rx: '26%', ry: '34%', fill: '#E8A8CC', delay: 0.22 },
+  { cx: '52%', cy: '58%', rx: '42%', ry: '22%', fill: '#F5E6F2', delay: 0.32 },
+  { cx: '42%', cy: '46%', rx: '22%', ry: '28%', fill: '#B8688A', delay: 0.44 },
 ]
 
 export default function PageLoader() {

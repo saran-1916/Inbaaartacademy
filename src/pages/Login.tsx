@@ -1,23 +1,23 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Logo from '../components/Logo'
 
 // ── Artwork thumbnail placeholders ──────────────────────────────────────────
 const artworks = [
   {
-    label: 'Golden Hour Wash',
-    colors: ['#E8C9A0', '#C4A882', '#D4956A'],
+    label: 'Aari Florals',
+    colors: ['#F2D0E8', '#C9A0C0', '#B8688A'],
     delay: 0,
   },
   {
-    label: 'Deep Teal Study',
-    colors: ['#3D2B1F', '#8B5E3C', '#C4A882'],
+    label: 'Silk Thread Jewellery',
+    colors: ['#4A2A58', '#B8688A', '#C9A0C0'],
     delay: 0.8,
   },
   {
-    label: 'Blush Layer',
-    colors: ['#FAF6F1', '#F0E6D8', '#C4A882'],
+    label: 'Fabric Painting',
+    colors: ['#FDF4FA', '#F5E6F2', '#C9A0C0'],
     delay: 1.6,
   },
 ]
@@ -82,11 +82,11 @@ function ArtPanelBlobs() {
           <feGaussianBlur stdDeviation="28" />
         </filter>
       </defs>
-      <ellipse cx="20%" cy="15%" rx="160" ry="120" fill="#C4A882" opacity="0.08" filter="url(#login-blob-blur)" />
-      <ellipse cx="80%" cy="30%" rx="120" ry="100" fill="#F0E6D8" opacity="0.06" filter="url(#login-blob-blur)" />
-      <ellipse cx="50%" cy="70%" rx="180" ry="130" fill="#D4956A" opacity="0.07" filter="url(#login-blob-blur)" />
-      <ellipse cx="10%" cy="85%" rx="140" ry="100" fill="#E8C9A0" opacity="0.06" filter="url(#login-blob-blur)" />
-      <ellipse cx="85%" cy="80%" rx="100" ry="80" fill="#C4A882" opacity="0.05" filter="url(#login-blob-blur)" />
+      <ellipse cx="20%" cy="15%" rx="160" ry="120" fill="#C9A0C0" opacity="0.08" filter="url(#login-blob-blur)" />
+      <ellipse cx="80%" cy="30%" rx="120" ry="100" fill="#F5E6F2" opacity="0.06" filter="url(#login-blob-blur)" />
+      <ellipse cx="50%" cy="70%" rx="180" ry="130" fill="#E8A8CC" opacity="0.07" filter="url(#login-blob-blur)" />
+      <ellipse cx="10%" cy="85%" rx="140" ry="100" fill="#F2D0E8" opacity="0.06" filter="url(#login-blob-blur)" />
+      <ellipse cx="85%" cy="80%" rx="100" ry="80" fill="#C9A0C0" opacity="0.05" filter="url(#login-blob-blur)" />
     </svg>
   )
 }
@@ -243,7 +243,7 @@ export default function Login() {
             style={{
               fontFamily: '"DM Sans", sans-serif',
               fontSize: '0.8rem',
-              color: 'rgba(196, 168, 130, 0.7)',
+              color: 'rgba(201, 160, 192, 0.7)',
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
             }}
@@ -267,6 +267,28 @@ export default function Login() {
           overflowY: 'auto',
         }}
       >
+        {/* Back to home */}
+        <Link
+          to="/"
+          style={{
+            position: 'absolute',
+            top: '1.25rem',
+            left: '1.25rem',
+            fontFamily: '"DM Sans", sans-serif',
+            fontSize: '0.82rem',
+            color: 'var(--color-brand-muted)',
+            textDecoration: 'none',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.3rem',
+            transition: 'color 0.2s ease',
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--color-brand-accent)' }}
+          onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--color-brand-muted)' }}
+        >
+          ← Back to Home
+        </Link>
+
         {/* Mobile-only logo */}
         <div
           style={{ marginBottom: '2rem' }}
@@ -398,7 +420,7 @@ export default function Login() {
                     lineHeight: 1.5,
                   }}
                 >
-                  🎨 <strong>Demo Mode</strong> — Click 'Sign In' to preview the student dashboard
+                  <strong>Demo Mode</strong> — Click 'Sign In' to preview the student dashboard
                 </div>
 
                 <button
@@ -553,7 +575,7 @@ export default function Login() {
                     marginTop: '0.5rem',
                   }}
                 >
-                  🛡️ <strong>Demo Mode</strong> — Click to preview the admin panel
+                  <strong>Demo Mode</strong> — Click to preview the admin panel
                 </div>
 
                 <button

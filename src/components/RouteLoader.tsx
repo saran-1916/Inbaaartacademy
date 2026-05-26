@@ -53,7 +53,7 @@ export default function RouteLoader() {
             <ellipse
               cx="30%" cy="40%"
               rx="180" ry="120"
-              fill="#C4A882"
+              fill="#C9A0C0"
               opacity="0.07"
               filter="url(#rl-blur-1)"
               style={{ animation: 'pulse-blob 1.4s ease-in-out infinite' }}
@@ -61,7 +61,7 @@ export default function RouteLoader() {
             <ellipse
               cx="70%" cy="60%"
               rx="220" ry="150"
-              fill="#D4956A"
+              fill="#E8A8CC"
               opacity="0.05"
               filter="url(#rl-blur-2)"
               style={{ animation: 'pulse-blob 1.4s ease-in-out infinite 0.25s' }}
@@ -69,7 +69,7 @@ export default function RouteLoader() {
             <ellipse
               cx="50%" cy="30%"
               rx="150" ry="100"
-              fill="#8B5E3C"
+              fill="#B8688A"
               opacity="0.04"
               filter="url(#rl-blur-3)"
               style={{ animation: 'pulse-blob 1.4s ease-in-out infinite 0.5s' }}

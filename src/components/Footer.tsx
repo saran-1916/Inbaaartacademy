@@ -81,7 +81,7 @@ export default function Footer() {
         >
           {/* Column 1: Logo + tagline */}
           <div>
-            <Logo size="md" inverted />
+            <Logo size="lg" inverted />
             <p
               style={{
                 fontFamily: '"Cormorant Garamond", Georgia, serif',

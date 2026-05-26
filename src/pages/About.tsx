@@ -18,19 +18,18 @@ const eyebrowStyle: React.CSSProperties = {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// GALLERY DATA — 9 art placeholders with varied heights
+// GALLERY DATA — 3 real studio photos
 // ─────────────────────────────────────────────────────────────────────────────
 const GALLERY_ITEMS = [
-  { id: 1, h: 260, colors: ['#E8C9A0', '#C4A882'] as [string,string], title: 'Golden Hour Wash' },
-  { id: 2, h: 200, colors: ['#D4956A', '#8B5E3C'] as [string,string], title: 'Terracotta Study' },
-  { id: 3, h: 320, colors: ['#3D2B1F', '#8B5E3C'] as [string,string], title: 'Deep Earth' },
-  { id: 4, h: 180, colors: ['#C4A882', '#FAF6F1'] as [string,string], title: 'Morning Mist' },
-  { id: 5, h: 280, colors: ['#F0E6D8', '#D4956A'] as [string,string], title: 'Blush & Amber' },
-  { id: 6, h: 220, colors: ['#8B5E3C', '#3D2B1F'] as [string,string], title: 'Dusk Palette' },
-  { id: 7, h: 300, colors: ['#E8C9A0', '#D4956A'] as [string,string], title: 'Warm Horizon' },
-  { id: 8, h: 200, colors: ['#A89080', '#C4A882'] as [string,string], title: 'Soft Neutrals' },
-  { id: 9, h: 240, colors: ['#C4A882', '#8B5E3C'] as [string,string], title: 'Studio Corner' },
+  { id: 1, src: '/images/1.jpg', title: 'Studio Work',    gridArea: '1 / 1 / 2 / 3' },
+  { id: 2, src: '/images/2.jpg', title: 'Handmade Craft', gridArea: '1 / 3 / 2 / 4' },
+  { id: 3, src: '/images/3.jpg', title: 'Creative Art',   gridArea: '1 / 4 / 3 / 5' },
+  { id: 4, src: '/images/4.jpg', title: 'Our Work',       gridArea: '2 / 1 / 3 / 2' },
+  { id: 5, src: '/images/5.jpg', title: 'Art Class',      gridArea: '2 / 2 / 3 / 3' },
+  { id: 6, src: '/images/6.jpg', title: 'From the Studio', gridArea: '2 / 3 / 3 / 4' },
 ]
+
+const GALLERY_ROTATIONS = [-2.2, 1.5, -1.2, 1.8, -1.5, 2.0]
 
 // ─────────────────────────────────────────────────────────────────────────────
 // TIMELINE DATA
@@ -48,75 +47,21 @@ const TIMELINE = [
 const PILLARS = [
   {
     icon: <Brush size={22} color="var(--color-brand-accent)" />,
-    title: 'Practice Over Perfection',
-    body: 'Every painter\'s first fifty paintings are for learning, not the wall. I teach you to put brush to paper without fear, and trust that skill grows through doing — not waiting until you feel ready.',
+    title: 'Beginner Friendly',
+    body: 'Every class is designed with beginners in mind. Step-by-step guidance helps students, homemakers and art lovers build skills confidently — no prior experience needed.',
   },
   {
-    icon: <Palette size={22} color="var(--color-brand-accent)" />,
-    title: 'Structure That Sets You Free',
-    body: 'Good technique is not a cage — it\'s a language. Once you understand why wet-on-wet blooms the way it does, or how value contrast creates depth, creative choices become intuitive and fast.',
+    icon: <Heart size={22} color="var(--color-brand-accent)" />,
+    title: 'Personal Guidance',
+    body: 'Small batch learning ensures every learner gets personal attention. We help you improve creativity, build confidence and develop real artistic talent at your own pace.',
   },
   {
     icon: <Calendar size={22} color="var(--color-brand-accent)" />,
-    title: 'Art as a Daily Habit',
-    body: 'Thirty minutes a day, three times a week, is more powerful than an intense weekend workshop once a year. My courses are designed around real life — short lessons, sustainable rhythm.',
+    title: 'Online & Offline',
+    body: 'Join live interactive online classes from the comfort of your home, or attend in person — with flexible timings, practice support and a creative, friendly environment.',
   },
 ]
 
-// ─────────────────────────────────────────────────────────────────────────────
-// ART PLACEHOLDER SVG
-// ─────────────────────────────────────────────────────────────────────────────
-function ArtPlaceholder({
-  colors,
-  height,
-  id,
-}: {
-  colors: [string, string]
-  height: number
-  id: number
-}) {
-  const uid = `ap-${id}`
-  return (
-    <svg
-      width="100%"
-      height={height}
-      viewBox={`0 0 300 ${height}`}
-      preserveAspectRatio="xMidYMid slice"
-      xmlns="http://www.w3.org/2000/svg"
-      style={{ display: 'block' }}
-    >
-      <defs>
-        <radialGradient id={`${uid}-g`} cx="40%" cy="35%" r="70%">
-          <stop offset="0%" stopColor={colors[0]} stopOpacity="0.95" />
-          <stop offset="100%" stopColor={colors[1]} stopOpacity="1" />
-        </radialGradient>
-        <filter id={`${uid}-f`}>
-          <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="4" />
-          <feDisplacementMap in="SourceGraphic" scale="18" />
-        </filter>
-        <filter id={`${uid}-grain`}>
-          <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" stitchTiles="stitch" />
-          <feColorMatrix type="saturate" values="0" />
-        </filter>
-      </defs>
-      <rect width="300" height={height} fill={`url(#${uid}-g)`} />
-      <ellipse
-        cx="120" cy={height * 0.4}
-        rx="130" ry={height * 0.38}
-        fill={colors[0]}
-        opacity="0.35"
-        filter={`url(#${uid}-f)`}
-      />
-      <ellipse
-        cx="210" cy={height * 0.72}
-        rx="100" ry={height * 0.28}
-        fill={colors[1]}
-        opacity="0.28"
-      />
-      <rect width="300" height={height} filter={`url(#${uid}-grain)`} opacity="0.06" />
-    </svg>
-  )
-}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // LIGHTBOX
@@ -139,7 +84,7 @@ function Lightbox({
         style={{
           position: 'fixed',
           inset: 0,
-          background: 'rgba(44, 24, 16, 0.82)',
+          background: 'rgba(46, 27, 48, 0.82)',
           zIndex: 500,
           display: 'flex',
           alignItems: 'center',
@@ -156,7 +101,7 @@ function Lightbox({
           transition={{ type: 'spring', damping: 22, stiffness: 260 }}
           onClick={(e) => e.stopPropagation()}
           style={{
-            maxWidth: 620,
+            maxWidth: 680,
             width: '100%',
             borderRadius: 10,
             overflow: 'hidden',
@@ -165,7 +110,11 @@ function Lightbox({
             boxShadow: '0 40px 80px rgba(0,0,0,0.4)',
           }}
         >
-          <ArtPlaceholder colors={item.colors} height={360} id={item.id + 100} />
+          <img
+            src={item.src}
+            alt={item.title}
+            style={{ width: '100%', maxHeight: 480, objectFit: 'cover', display: 'block' }}
+          />
           <div style={{ padding: '1.25rem 1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <p
               style={{
@@ -200,7 +149,7 @@ function Lightbox({
               width: 34,
               height: 34,
               borderRadius: '50%',
-              background: 'rgba(44,24,16,0.55)',
+              background: 'rgba(74,42,88,0.55)',
               border: 'none',
               cursor: 'pointer',
               display: 'flex',
@@ -219,57 +168,85 @@ function Lightbox({
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// GALLERY ITEM
+// GALLERY ITEM — polaroid-style collage card
 // ─────────────────────────────────────────────────────────────────────────────
 function GalleryItem({
   item,
+  index,
   onClick,
 }: {
   item: typeof GALLERY_ITEMS[0]
+  index: number
   onClick: () => void
 }) {
   const [hovered, setHovered] = useState(false)
+  const rot = GALLERY_ROTATIONS[index] ?? 0
 
   return (
-    <div
+    <motion.div
       onClick={onClick}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
+      animate={{ rotate: hovered ? 0 : rot, scale: hovered ? 1.04 : 1, zIndex: hovered ? 10 : 1 }}
+      transition={{ type: 'spring', damping: 20, stiffness: 260 }}
       style={{
-        position: 'relative',
-        borderRadius: 6,
-        overflow: 'hidden',
+        gridArea: item.gridArea,
+        background: '#fff',
+        padding: '7px 7px 28px',
+        boxShadow: hovered
+          ? '0 16px 40px rgba(74,42,88,0.22)'
+          : '0 4px 18px rgba(74,42,88,0.13)',
+        borderRadius: 2,
         cursor: 'zoom-in',
-        breakInside: 'avoid',
-        marginBottom: '1rem',
-        display: 'block',
+        position: 'relative',
+        willChange: 'transform',
       }}
     >
-      <ArtPlaceholder colors={item.colors} height={item.h} id={item.id} />
-      <motion.div
-        animate={{ opacity: hovered ? 1 : 0 }}
-        transition={{ duration: 0.22 }}
+      <div style={{ width: '100%', height: '100%', overflow: 'hidden', position: 'relative' }}>
+        <img
+          src={item.src}
+          alt={item.title}
+          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          loading="lazy"
+        />
+        {/* Hover tint */}
+        <motion.div
+          animate={{ opacity: hovered ? 1 : 0 }}
+          transition={{ duration: 0.2 }}
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'rgba(201,160,192,0.28)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Heart size={24} color="#fff" fill="rgba(255,255,255,0.85)" />
+        </motion.div>
+      </div>
+      {/* Polaroid caption */}
+      <p
         style={{
           position: 'absolute',
-          inset: 0,
-          background: 'rgba(196, 168, 130, 0.38)',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: 28,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          fontFamily: '"Cormorant Garamond", Georgia, serif',
+          fontStyle: 'italic',
+          fontSize: '0.72rem',
+          color: 'var(--color-brand-muted)',
+          letterSpacing: '0.05em',
+          margin: 0,
         }}
       >
-        <motion.div
-          animate={{ scale: hovered ? 1 : 0.7, opacity: hovered ? 1 : 0 }}
-          transition={{ type: 'spring', damping: 18, stiffness: 280 }}
-        >
-          <Heart
-            size={28}
-            color="#fff"
-            fill="rgba(255,255,255,0.85)"
-          />
-        </motion.div>
-      </motion.div>
-    </div>
+        {item.title}
+      </p>
+    </motion.div>
   )
 }
 
@@ -305,7 +282,7 @@ function TimelineNode({ item, index }: { item: typeof TIMELINE[0]; index: number
               borderRadius: 8,
               padding: '1.25rem 1.5rem',
               maxWidth: 320,
-              boxShadow: '0 2px 12px rgba(61,43,31,0.06)',
+              boxShadow: '0 2px 12px rgba(74,42,88,0.07)',
             }}
           >
             <TimelineCard item={item} />
@@ -370,7 +347,7 @@ function TimelineNode({ item, index }: { item: typeof TIMELINE[0]; index: number
               borderRadius: 8,
               padding: '1.25rem 1.5rem',
               maxWidth: 320,
-              boxShadow: '0 2px 12px rgba(61,43,31,0.06)',
+              boxShadow: '0 2px 12px rgba(74,42,88,0.07)',
             }}
           >
             <TimelineCard item={item} />
@@ -493,8 +470,8 @@ function Portrait() {
           borderRadius: '40% 60% 55% 45% / 45% 45% 60% 55%',
           overflow: 'hidden',
           position: 'relative',
-          boxShadow: '0 24px 60px rgba(61,43,31,0.2)',
-          border: '3px solid rgba(196,168,130,0.35)',
+          boxShadow: '0 24px 60px rgba(74,42,88,0.2)',
+          border: '3px solid rgba(201,160,192,0.45)',
         }}
       >
         <svg
@@ -505,9 +482,9 @@ function Portrait() {
         >
           <defs>
             <radialGradient id="portrait-grad" cx="45%" cy="40%" r="68%">
-              <stop offset="0%" stopColor="#E8C9A0" />
-              <stop offset="50%" stopColor="#C4A882" />
-              <stop offset="100%" stopColor="#8B5E3C" />
+              <stop offset="0%" stopColor="#F2D0E8" />
+              <stop offset="50%" stopColor="#C9A0C0" />
+              <stop offset="100%" stopColor="#B8688A" />
             </radialGradient>
             <filter id="portrait-grain">
               <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
@@ -519,8 +496,8 @@ function Portrait() {
             </filter>
           </defs>
           <rect width="340" height="380" fill="url(#portrait-grad)" />
-          <ellipse cx="170" cy="150" rx="140" ry="130" fill="#D4956A" opacity="0.3" filter="url(#portrait-disp)" />
-          <ellipse cx="100" cy="320" rx="100" ry="70" fill="#C4A882" opacity="0.2" />
+          <ellipse cx="170" cy="150" rx="140" ry="130" fill="#E8A8CC" opacity="0.3" filter="url(#portrait-disp)" />
+          <ellipse cx="100" cy="320" rx="100" ry="70" fill="#C9A0C0" opacity="0.2" />
           <rect width="340" height="380" filter="url(#portrait-grain)" opacity="0.08" />
           {/* Placeholder silhouette hint */}
           <text
@@ -566,7 +543,7 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
         >
-          <span style={eyebrowStyle}>Meet Your Instructor</span>
+          <span style={eyebrowStyle}>About Inbaa Arts Academy</span>
           <h1
             style={{
               fontFamily: '"Cormorant Garamond", Georgia, serif',
@@ -578,7 +555,7 @@ function Hero() {
               marginBottom: '1.5rem',
             }}
           >
-            Hi, I'm Kamali.
+            Who We Are
           </h1>
           <p
             style={{
@@ -590,12 +567,12 @@ function Hero() {
               maxWidth: 480,
             }}
           >
-            I've been painting since I was a child, chasing colours across watercolour paper
-            and canvas. Three years ago, I started Inbaa Academy with a simple belief: art
-            is for everyone, and the right teacher can unlock it.{' '}
-            <span style={{ color: 'var(--color-brand-muted)', fontStyle: 'italic' }}>
-              [Placeholder — add your personal story here]
-            </span>
+            Inbaa Arts Academy is a creative learning academy dedicated to teaching beautiful
+            handmade art and craft skills in a simple and practical way. We help students,
+            homemakers, beginners, and art lovers learn professional creative skills through
+            step-by-step guidance and friendly teaching methods.
+            {' '}Our classes focus on creativity, skill development, confidence building,
+            and practical learning for personal growth as well as small business opportunities.
           </p>
 
           {/* Stats */}
@@ -608,8 +585,9 @@ function Hero() {
             }}
           >
             {[
+              { val: '5', label: 'Courses Offered' },
               { val: '50+', label: 'Students Taught' },
-              { val: '3 yrs', label: 'of Inbaa Academy' },
+              { val: 'Both', label: 'Online & Offline' },
             ].map(({ val, label }) => (
               <div key={label}>
                 <p
@@ -678,6 +656,259 @@ function Hero() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// MEET THE TEACHER
+// ─────────────────────────────────────────────────────────────────────────────
+function TeacherSection() {
+  const ref = useRef<HTMLDivElement>(null)
+  const inView = useInView(ref, { once: true, margin: '-80px' })
+
+  return (
+    <section style={{ padding: '5rem 24px', background: 'var(--color-brand-light)' }}>
+      <div
+        ref={ref}
+        style={{
+          maxWidth: 1100,
+          margin: '0 auto',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gap: '4rem',
+          alignItems: 'center',
+        }}
+      >
+        {/* Left — teacher portrait placeholder */}
+        <motion.div
+          initial={{ opacity: 0, x: -32 }}
+          animate={inView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          style={{ display: 'flex', justifyContent: 'center' }}
+        >
+          <div style={{ position: 'relative' }}>
+            {/* Decorative ring */}
+            <div
+              style={{
+                position: 'absolute',
+                inset: -12,
+                borderRadius: '38% 62% 52% 48% / 50% 44% 56% 50%',
+                border: '1.5px solid rgba(201,160,192,0.35)',
+                pointerEvents: 'none',
+              }}
+            />
+            <div
+              style={{
+                width: 300,
+                height: 340,
+                borderRadius: '38% 62% 52% 48% / 50% 44% 56% 50%',
+                overflow: 'hidden',
+                boxShadow: '0 20px 55px rgba(74,42,88,0.18)',
+                border: '3px solid rgba(201,160,192,0.4)',
+              }}
+            >
+              <svg
+                width="300" height="340"
+                viewBox="0 0 300 340"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ display: 'block' }}
+              >
+                <defs>
+                  <radialGradient id="teacher-grad" cx="45%" cy="38%" r="65%">
+                    <stop offset="0%" stopColor="#F2D0E8" />
+                    <stop offset="50%" stopColor="#C9A0C0" />
+                    <stop offset="100%" stopColor="#B8688A" />
+                  </radialGradient>
+                  <filter id="teacher-disp">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.025" numOctaves="3" />
+                    <feDisplacementMap in="SourceGraphic" scale="18" />
+                  </filter>
+                </defs>
+                <rect width="300" height="340" fill="url(#teacher-grad)" />
+                <ellipse cx="150" cy="130" rx="130" ry="118" fill="#E8A8CC" opacity="0.28" filter="url(#teacher-disp)" />
+                <ellipse cx="80" cy="290" rx="90" ry="60" fill="#C9A0C0" opacity="0.2" />
+                <text
+                  x="50%" y="52%"
+                  textAnchor="middle" dominantBaseline="middle"
+                  fill="rgba(250,246,241,0.2)" fontSize="10"
+                  fontFamily="DM Sans, sans-serif" letterSpacing="0.15em"
+                >
+                  PHOTO
+                </text>
+              </svg>
+            </div>
+
+            {/* Experience badge */}
+            <div
+              style={{
+                position: 'absolute',
+                bottom: 20,
+                right: -20,
+                background: 'var(--color-brand-dark)',
+                borderRadius: 8,
+                padding: '0.7rem 1rem',
+                boxShadow: '0 8px 24px rgba(74,42,88,0.25)',
+                textAlign: 'center',
+                minWidth: 90,
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: '"Cormorant Garamond", Georgia, serif',
+                  fontSize: '1.6rem',
+                  fontWeight: 600,
+                  color: 'var(--color-brand-primary)',
+                  lineHeight: 1,
+                  margin: 0,
+                }}
+              >
+                4+
+              </p>
+              <p
+                style={{
+                  fontFamily: '"DM Sans", sans-serif',
+                  fontSize: '0.68rem',
+                  color: 'rgba(253,244,250,0.7)',
+                  letterSpacing: '0.07em',
+                  marginTop: '0.2rem',
+                }}
+              >
+                Years Teaching
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Right — bio text */}
+        <motion.div
+          initial={{ opacity: 0, x: 32 }}
+          animate={inView ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+        >
+          <span style={eyebrowStyle}>Meet Your Teacher</span>
+          <h2
+            style={{
+              fontFamily: '"Cormorant Garamond", Georgia, serif',
+              fontSize: 'clamp(2rem, 4.5vw, 3rem)',
+              fontWeight: 300,
+              color: 'var(--color-brand-dark)',
+              letterSpacing: '0.02em',
+              lineHeight: 1.15,
+              marginBottom: '1.25rem',
+            }}
+          >
+            Kamali
+          </h2>
+
+          <p
+            style={{
+              fontFamily: '"DM Sans", sans-serif',
+              fontSize: '1rem',
+              color: 'var(--color-brand-ink)',
+              lineHeight: 1.8,
+              marginBottom: '1.5rem',
+              maxWidth: 500,
+            }}
+          >
+            Kamali is the founder and lead instructor of Inbaa Arts Academy, with over 4 years
+            of dedicated teaching experience in handmade arts and crafts. Her passion is making
+            traditional and creative art skills accessible to everyone — from homemakers to
+            students to art lovers across India.
+          </p>
+
+          <p
+            style={{
+              fontFamily: '"DM Sans", sans-serif',
+              fontSize: '1rem',
+              color: 'var(--color-brand-muted)',
+              lineHeight: 1.8,
+              marginBottom: '2rem',
+              maxWidth: 500,
+            }}
+          >
+            Known for her patient, step-by-step teaching style, Kamali works with small
+            batches to ensure every student receives personal attention. Whether you join
+            online or in person, her warm and encouraging approach helps learners build
+            real skills and lasting confidence in their creative journey.
+          </p>
+
+          {/* Specialisations */}
+          <div style={{ marginBottom: '2rem' }}>
+            <p
+              style={{
+                fontFamily: '"DM Sans", sans-serif',
+                fontSize: '0.72rem',
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                color: 'var(--color-brand-muted)',
+                marginBottom: '0.75rem',
+                fontWeight: 500,
+              }}
+            >
+              Specialises in
+            </p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+              {[
+                'Aari Embroidery',
+                'Fabric Painting',
+                'Silk Thread Jewellery',
+                'Mehndi',
+                'Artificial Flowers',
+              ].map((skill) => (
+                <span
+                  key={skill}
+                  style={{
+                    fontFamily: '"DM Sans", sans-serif',
+                    fontSize: '0.8rem',
+                    fontWeight: 500,
+                    color: 'var(--color-brand-accent)',
+                    background: 'rgba(184,104,138,0.09)',
+                    border: '1px solid rgba(184,104,138,0.22)',
+                    borderRadius: 20,
+                    padding: '4px 12px',
+                  }}
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Highlights */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+            {[
+              'Small batch classes — personal attention for every student',
+              'Online & offline options with flexible timings',
+              'Beginner-friendly, step-by-step guidance',
+            ].map((point) => (
+              <div key={point} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem' }}>
+                <div
+                  style={{
+                    width: 6,
+                    height: 6,
+                    borderRadius: '50%',
+                    background: 'var(--color-brand-primary)',
+                    flexShrink: 0,
+                    marginTop: 7,
+                  }}
+                />
+                <p
+                  style={{
+                    fontFamily: '"DM Sans", sans-serif',
+                    fontSize: '0.9rem',
+                    color: 'var(--color-brand-muted)',
+                    lineHeight: 1.6,
+                    margin: 0,
+                  }}
+                >
+                  {point}
+                </p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // PHILOSOPHY
 // ─────────────────────────────────────────────────────────────────────────────
 function Philosophy() {
@@ -685,7 +916,7 @@ function Philosophy() {
     <section style={{ padding: '5rem 24px', background: 'var(--color-brand-secondary)' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <span style={eyebrowStyle}>MY APPROACH</span>
+          <span style={eyebrowStyle}>OUR APPROACH</span>
           <h2
             style={{
               fontFamily: '"Cormorant Garamond", Georgia, serif',
@@ -695,7 +926,7 @@ function Philosophy() {
               letterSpacing: '0.02em',
             }}
           >
-            How I Teach
+            Why Choose Us
           </h2>
         </div>
 
@@ -717,7 +948,7 @@ function Philosophy() {
                 background: '#fff',
                 borderRadius: 8,
                 padding: '1.75rem',
-                boxShadow: '0 2px 12px rgba(61,43,31,0.06)',
+                boxShadow: '0 2px 12px rgba(74,42,88,0.07)',
                 overflow: 'hidden',
                 position: 'relative',
               }}
@@ -841,17 +1072,24 @@ function Gallery() {
           </h2>
         </div>
 
-        {/* CSS masonry via columns */}
+        {/* Asymmetric collage grid */}
         <div
           style={{
-            columns: 'repeat(auto-fill, minmax(220px, 1fr))',
-            columnGap: '1rem',
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr 1fr 1fr',
+            gridTemplateRows: '220px 200px',
+            gap: '1rem',
+            padding: '2rem',
+            background: 'rgba(201,160,192,0.08)',
+            borderRadius: 12,
+            border: '1px solid rgba(201,160,192,0.2)',
           }}
         >
-          {GALLERY_ITEMS.map((item) => (
+          {GALLERY_ITEMS.map((item, i) => (
             <GalleryItem
               key={item.id}
               item={item}
+              index={i}
               onClick={() => setLightboxItem(item)}
             />
           ))}
@@ -920,7 +1158,7 @@ function FinalCTA() {
             lineHeight: 1.2,
           }}
         >
-          Ready to pick up a brush?
+          Ready to start creating?
         </motion.h2>
 
         <motion.p
@@ -931,11 +1169,11 @@ function FinalCTA() {
           style={{
             fontFamily: '"DM Sans", sans-serif',
             fontSize: '1rem',
-            color: 'rgba(250,246,241,0.65)',
+            color: 'rgba(253,244,250,0.65)',
             marginBottom: '2.5rem',
           }}
         >
-          Start with 3 free lessons. No card needed.
+          Explore our courses and start learning handmade art skills today.
         </motion.p>
 
         <motion.div
@@ -963,14 +1201,14 @@ function FinalCTA() {
             onMouseEnter={(e) => { e.currentTarget.style.opacity = '0.88' }}
             onMouseLeave={(e) => { e.currentTarget.style.opacity = '1' }}
           >
-            Start Free
+            Explore Courses
           </Link>
           <Link
             to="/courses"
             style={{
               padding: '0.8rem 2rem',
               background: 'transparent',
-              border: '1px solid rgba(250,246,241,0.4)',
+              border: '1px solid rgba(253,244,250,0.4)',
               borderRadius: 3,
               textDecoration: 'none',
               fontFamily: '"DM Sans", sans-serif',
@@ -980,8 +1218,8 @@ function FinalCTA() {
               letterSpacing: '0.03em',
               transition: 'border-color 0.2s ease',
             }}
-            onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(250,246,241,0.75)' }}
-            onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(250,246,241,0.4)' }}
+            onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'rgba(253,244,250,0.75)' }}
+            onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(253,244,250,0.4)' }}
           >
             View All Courses
           </Link>
@@ -998,6 +1236,7 @@ export default function About() {
   return (
     <div style={{ background: 'var(--color-brand-light)' }}>
       <Hero />
+      <TeacherSection />
       <Philosophy />
       <Timeline />
       <Gallery />

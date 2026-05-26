@@ -1,4 +1,4 @@
-import { type ReactNode, useState, useEffect } from 'react'
+import { type ReactNode, useState, useEffect, lazy, Suspense } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Navbar from './components/Navbar'
@@ -7,14 +7,15 @@ import Footer from './components/Footer'
 import FloatingCTA from './components/FloatingCTA'
 import ArtAmbience from './components/ArtAmbience'
 import RouteLoader from './components/RouteLoader'
-import Login from './pages/Login'
-import StudentDashboard from './pages/dashboard/StudentDashboard'
-import AdminDashboard from './pages/dashboard/AdminDashboard'
-import HomePage from './pages/HomePage'
-import CoursesPage from './pages/CoursesPage'
-import Workshops from './pages/Workshops'
-import About from './pages/About'
-import ContactPage from './pages/ContactPage'
+
+const Login            = lazy(() => import('./pages/Login'))
+const StudentDashboard = lazy(() => import('./pages/dashboard/StudentDashboard'))
+const AdminDashboard   = lazy(() => import('./pages/dashboard/AdminDashboard'))
+const HomePage         = lazy(() => import('./pages/HomePage'))
+const CoursesPage      = lazy(() => import('./pages/CoursesPage'))
+const Workshops        = lazy(() => import('./pages/Workshops'))
+const About            = lazy(() => import('./pages/About'))
+const ContactPage      = lazy(() => import('./pages/ContactPage'))
 
 // ── Page transition wrapper ───────────────────────────────────────────────────
 const pageVariants = {
@@ -127,6 +128,7 @@ export default function App() {
     <>
       <AnimatePresence>{!loaded && <PageLoader key="loader" />}</AnimatePresence>
       <RouteLoader />
+      <Suspense fallback={<div style={{ minHeight: '100svh', background: 'var(--color-brand-light)' }} />}>
       <Routes>
       {/* Login — full-screen, no global layout */}
       <Route path="/login" element={<Login />} />
@@ -166,6 +168,7 @@ export default function App() {
         }
       />
     </Routes>
+      </Suspense>
     </>
   )
 }

@@ -5,10 +5,9 @@ import CourseCardSkeleton from '../components/CourseCardSkeleton'
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
-type Medium = 'Watercolour' | 'Acrylics' | 'Sketching' | 'Colour Theory'
-type Level = 'Beginner' | 'Elementary' | 'Intermediate' | 'Upper Intermediate' | 'Advanced'
-type Format = 'Recorded' | 'Live' | 'Free'
-type Duration = 'Under 5 hours' | '5–15 hours' | '15+ hours'
+type Medium = 'Aari Embroidery' | 'Fabric Painting' | 'Silk Thread Jewellery' | 'Mehndi' | 'Artificial Flowers'
+type Level = 'Beginner' | 'Intermediate' | 'Advanced'
+type Format = 'Recorded' | 'Live'
 
 interface Course {
   id: number
@@ -17,55 +16,52 @@ interface Course {
   medium: Medium
   level: Level
   format: Format
-  price: number | 'Free'
-  hours: number
+  price: 'Enquire'
   lessons: number
   seed: string
+  image: string
   featured?: true
 }
 
-function getDuration(hours: number): Duration {
-  if (hours < 5) return 'Under 5 hours'
-  if (hours <= 15) return '5–15 hours'
-  return '15+ hours'
-}
-
 const COURSES: Course[] = [
-  { id: 1,  title: 'Sketching Foundations',           description: 'Build core drawing skills from scratch. Lines, shapes, shading and composition covered.',      medium: 'Sketching',      level: 'Beginner',          format: 'Recorded', price: 799,   hours: 4,  lessons: 12, seed: 'sketch-found'  },
-  { id: 2,  title: 'Proportions & Everyday Objects',  description: 'Train your eye to see and render everyday objects with accurate proportions and confident lines.', medium: 'Sketching',      level: 'Beginner',          format: 'Recorded', price: 799,   hours: 3,  lessons: 9,  seed: 'proportions'   },
-  { id: 3,  title: 'Portrait Sketching',              description: 'Master facial anatomy, likeness and expressive portrait drawing in pencil and pen.',              medium: 'Sketching',      level: 'Intermediate',      format: 'Recorded', price: 1299,  hours: 8,  lessons: 20, seed: 'portrait-sk'   },
-  { id: 4,  title: 'Figure Drawing Basics',           description: 'Understand the human form — gesture, structure and movement for dynamic figure sketches.',        medium: 'Sketching',      level: 'Elementary',        format: 'Recorded', price: 999,   hours: 5,  lessons: 14, seed: 'figure-draw'   },
-  { id: 5,  title: 'Watercolour Basics — Colour & Wash', description: 'Your first steps in watercolour: wet-on-wet, flat washes, colour mixing and simple florals.', medium: 'Watercolour',    level: 'Beginner',          format: 'Free',     price: 'Free', hours: 2,  lessons: 6,  seed: 'wc-basics'     },
-  { id: 6,  title: 'Watercolour Florals',             description: 'Paint loose, expressive flowers and botanical studies using wet-on-wet and layering techniques.', medium: 'Watercolour',    level: 'Intermediate',      format: 'Recorded', price: 1299,  hours: 10, lessons: 24, seed: 'wc-florals'    },
-  { id: 7,  title: 'Watercolour Portraits',           description: 'Capture light, skin tones and likeness in watercolour — a challenging and rewarding medium.',     medium: 'Watercolour',    level: 'Upper Intermediate', format: 'Recorded', price: 1799, hours: 15, lessons: 32, seed: 'wc-portrait',  featured: true },
-  { id: 8,  title: 'Colour Theory Essentials',        description: 'Understand hue, value, saturation and colour relationships — the foundation of every art form.',  medium: 'Colour Theory',  level: 'Beginner',          format: 'Recorded', price: 599,   hours: 3,  lessons: 8,  seed: 'colour-theory' },
-  { id: 9,  title: 'Acrylic Basics',                  description: 'Get comfortable with acrylics: consistency, layering, brush control and your first full painting.',medium: 'Acrylics',       level: 'Beginner',          format: 'Recorded', price: 999,   hours: 5,  lessons: 12, seed: 'acrylic-basic' },
-  { id: 10, title: 'Acrylic Florals — Layer & Bloom', description: 'Build lush floral paintings through confident layering, texture and rich colour mixing.',        medium: 'Acrylics',       level: 'Intermediate',      format: 'Recorded', price: 1299,  hours: 8,  lessons: 18, seed: 'acrylic-flor'  },
-  { id: 11, title: 'Acrylic Portraits',               description: 'Advanced portrait painting in acrylics — skin tones, light logic and impasto character.',        medium: 'Acrylics',       level: 'Advanced',          format: 'Recorded', price: 1999,  hours: 18, lessons: 36, seed: 'acrylic-port', featured: true },
-  { id: 12, title: 'Kids Art Starter (7–14 yrs)',     description: 'A fun, structured intro to drawing and colour for young creatives aged 7–14. No experience needed.', medium: 'Sketching',  level: 'Beginner',          format: 'Recorded', price: 699,   hours: 4,  lessons: 10, seed: 'kids-art'      },
+  {
+    id: 1, title: 'Aari Embroidery Classes', medium: 'Aari Embroidery', level: 'Beginner', format: 'Recorded',
+    description: 'Learn traditional and modern Aari work — from basic stitches and floral designs to bridal blouse designs with beads, stones and professional finishing techniques.',
+    price: 'Enquire', lessons: 6, seed: 'aari-embroidery', image: '/images/Aari Embroidery.png', featured: true,
+  },
+  {
+    id: 2, title: 'Fabric Painting Classes', medium: 'Fabric Painting', level: 'Beginner', format: 'Recorded',
+    description: 'Create beautiful hand-painted designs on sarees and dress fabric — colour mixing, brush techniques, outline & shading with traditional and modern patterns.',
+    price: 'Enquire', lessons: 6, seed: 'fabric-painting', image: '/images/Fabric Painting.png',
+  },
+  {
+    id: 3, title: 'Silk Thread Jewellery Classes', medium: 'Silk Thread Jewellery', level: 'Beginner', format: 'Recorded',
+    description: 'Make trendy handmade silk thread jewellery — bangles, earrings, jhumkas, necklaces and full bridal sets decorated with stones and beads, with professional finishing.',
+    price: 'Enquire', lessons: 6, seed: 'silk-jewellery', image: '/images/Silk Thread Jewellery.png', featured: true,
+  },
+  {
+    id: 4, title: 'Mehndi Classes', medium: 'Mehndi', level: 'Beginner', format: 'Recorded',
+    description: 'Learn stylish mehndi from beginner to advanced — Arabic, bridal, floral and traditional patterns with cone handling techniques and creative design development.',
+    price: 'Enquire', lessons: 5, seed: 'mehndi-art', image: '/images/Mehndi.png',
+  },
+  {
+    id: 5, title: 'Artificial Flowers Making', medium: 'Artificial Flowers', level: 'Beginner', format: 'Recorded',
+    description: 'Create beautiful handmade paper, satin ribbon and foam flowers — perfect for gifts, events, home décor and craft projects. Beginner friendly, step-by-step training.',
+    price: 'Enquire', lessons: 5, seed: 'art-flowers', image: '/images/Artificial Flowers Making.png',
+  },
 ]
 
 // ─── Filter config ─────────────────────────────────────────────────────────────
 
-const MEDIUMS:   string[] = ['All', 'Watercolour', 'Acrylics', 'Sketching', 'Colour Theory']
-const LEVELS:    string[] = ['All', 'Beginner', 'Elementary', 'Intermediate', 'Upper Intermediate', 'Advanced']
-const FORMATS:   string[] = ['All', 'Recorded', 'Live', 'Free']
-const DURATIONS: string[] = ['All', 'Under 5 hours', '5–15 hours', '15+ hours']
+const MEDIUMS:   string[] = ['All', 'Aari Embroidery', 'Fabric Painting', 'Silk Thread Jewellery', 'Mehndi', 'Artificial Flowers']
+const LEVELS:    string[] = ['All', 'Beginner', 'Intermediate', 'Advanced']
+const FORMATS:   string[] = ['All', 'Recorded', 'Live']
 
-// ─── Level / Format badge colours ─────────────────────────────────────────────
-
-const LEVEL_COLOURS: Record<Level, { bg: string; text: string }> = {
-  Beginner:           { bg: 'rgba(134,180,143,0.88)',  text: '#1a3d22' },
-  Elementary:         { bg: 'rgba(134,180,143,0.65)',  text: '#1a3d22' },
-  Intermediate:       { bg: 'rgba(196,168,130,0.92)',  text: '#3D2B1F' },
-  'Upper Intermediate':{ bg: 'rgba(196,140,80,0.88)', text: '#3D1F00' },
-  Advanced:           { bg: 'rgba(180,88,70,0.88)',    text: '#fff'    },
-}
+// ─── Format badge colours ────────────────────────────────────────────────────
 
 const FORMAT_COLOURS: Record<Format, { bg: string; text: string }> = {
-  Recorded: { bg: 'rgba(61,43,31,0.72)',   text: '#FAF6F1' },
-  Live:     { bg: 'rgba(139,94,60,0.88)',  text: '#fff'    },
-  Free:     { bg: 'rgba(96,160,100,0.88)', text: '#fff'    },
+  Recorded: { bg: 'rgba(74,42,88,0.72)',     text: '#FDF4FA' },
+  Live:     { bg: 'rgba(184,104,138,0.88)',  text: '#fff'    },
 }
 
 // ─── Tiny paint-drop SVG ──────────────────────────────────────────────────────
@@ -137,7 +133,7 @@ function FilterGroup({
   const [open, setOpen] = useState(true)
 
   return (
-    <div style={{ borderBottom: '0.5px solid rgba(196,168,130,0.2)', paddingBottom: 12 }}>
+    <div style={{ borderBottom: '0.5px solid rgba(201,160,192,0.2)', paddingBottom: 12 }}>
       <button
         onClick={() => setOpen((o) => !o)}
         style={{
@@ -194,7 +190,7 @@ function FilterGroup({
                         width: 15,
                         height: 15,
                         borderRadius: 3,
-                        border: `1.5px solid ${active ? 'var(--color-brand-primary)' : 'rgba(196,168,130,0.5)'}`,
+                        border: `1.5px solid ${active ? 'var(--color-brand-primary)' : 'rgba(201,160,192,0.5)'}`,
                         background: active ? 'var(--color-brand-primary)' : 'transparent',
                         display: 'inline-flex',
                         alignItems: 'center',
@@ -238,7 +234,7 @@ function ChipRow({ label, options, selected, onChange }: { label: string; option
               fontSize: 12,
               padding: '4px 12px',
               borderRadius: 20,
-              border: `0.5px solid ${active ? 'var(--color-brand-primary)' : 'rgba(196,168,130,0.4)'}`,
+              border: `0.5px solid ${active ? 'var(--color-brand-primary)' : 'rgba(201,160,192,0.4)'}`,
               background: active ? 'var(--color-brand-primary)' : 'transparent',
               color: active ? 'var(--color-brand-dark)' : 'var(--color-brand-muted)',
               cursor: 'pointer',
@@ -259,7 +255,6 @@ function ChipRow({ label, options, selected, onChange }: { label: string; option
 
 function CourseCard({ course, index }: { course: Course; index: number }) {
   const [hovered, setHovered] = useState(false)
-  const lc = LEVEL_COLOURS[course.level]
   const fc = FORMAT_COLOURS[course.format]
 
   return (
@@ -274,18 +269,18 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
       style={{
         background: 'white',
         borderRadius: 16,
-        border: '0.5px solid rgba(196,168,130,0.15)',
+        border: '0.5px solid rgba(201,160,192,0.15)',
         overflow: 'hidden',
         display: 'flex',
         flexDirection: 'column',
-        boxShadow: hovered ? '0 10px 36px rgba(61,43,31,0.11)' : '0 2px 10px rgba(61,43,31,0.05)',
+        boxShadow: hovered ? '0 10px 36px rgba(74,42,88,0.12)' : '0 2px 10px rgba(74,42,88,0.06)',
         transition: 'box-shadow 0.3s',
       }}
     >
       {/* Image area */}
       <div style={{ height: 200, position: 'relative', overflow: 'hidden', flexShrink: 0 }}>
         <img
-          src={`https://picsum.photos/seed/${course.seed}/560/400`}
+          src={course.image}
           alt={course.title}
           loading={course.id <= 3 ? 'eager' : 'lazy'}
           onLoad={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = '1' }}
@@ -304,32 +299,12 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'rgba(196,168,130,0.18)',
+            background: 'rgba(201,160,192,0.18)',
             opacity: hovered ? 1 : 0,
             transition: 'opacity 0.3s',
             pointerEvents: 'none',
           }}
         />
-
-        {/* Level badge — top left */}
-        <span
-          style={{
-            position: 'absolute',
-            top: 10,
-            left: 10,
-            fontFamily: '"DM Sans", sans-serif',
-            fontSize: 11,
-            fontWeight: 500,
-            padding: '3px 10px',
-            borderRadius: 20,
-            background: lc.bg,
-            color: lc.text,
-            backdropFilter: 'blur(4px)',
-            letterSpacing: '0.02em',
-          }}
-        >
-          {course.level}
-        </span>
 
         {/* Format badge — top right */}
         <span
@@ -443,10 +418,6 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
           }}
         >
           <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-            <ClockIcon />
-            {course.hours} hrs
-          </span>
-          <span style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
             <PlayIcon />
             {course.lessons} lessons
           </span>
@@ -456,23 +427,27 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, marginTop: 'auto' }}>
           <span
             style={{
-              fontFamily: '"Cormorant Garamond", Georgia, serif',
-              fontSize: 20,
-              fontWeight: 600,
-              color: course.price === 'Free' ? '#3a8c45' : 'var(--color-brand-dark)',
+              fontFamily: '"DM Sans", sans-serif',
+              fontSize: 12,
+              fontWeight: 500,
+              padding: '4px 10px',
+              borderRadius: 6,
+              background: 'var(--color-brand-secondary)',
+              color: 'var(--color-brand-accent)',
+              letterSpacing: '0.03em',
             }}
           >
-            {course.price === 'Free' ? 'Free' : `₹${course.price}`}
+            Enquire for pricing
           </span>
           <Link
-            to={`/courses/${course.id}`}
+            to="/contact"
             style={{
               fontFamily: '"DM Sans", sans-serif',
               fontSize: 13,
               fontWeight: 500,
               padding: '7px 18px',
               borderRadius: 8,
-              border: '0.5px solid rgba(196,168,130,0.5)',
+              border: '0.5px solid rgba(201,160,192,0.5)',
               color: 'var(--color-brand-dark)',
               background: 'transparent',
               textDecoration: 'none',
@@ -482,15 +457,15 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
             onMouseEnter={(e) => {
               e.currentTarget.style.background = 'var(--color-brand-primary)'
               e.currentTarget.style.borderColor = 'var(--color-brand-primary)'
-              e.currentTarget.style.color = 'var(--color-brand-dark)'
+              e.currentTarget.style.color = '#fff'
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = 'transparent'
-              e.currentTarget.style.borderColor = 'rgba(196,168,130,0.5)'
+              e.currentTarget.style.borderColor = 'rgba(201,160,192,0.5)'
               e.currentTarget.style.color = 'var(--color-brand-dark)'
             }}
           >
-            View Course →
+            Enquire →
           </Link>
         </div>
       </div>
@@ -504,7 +479,6 @@ interface Filters {
   medium: string
   level: string
   format: string
-  duration: string
 }
 
 function Sidebar({ filters, onChange, onClear }: { filters: Filters; onChange: (k: keyof Filters, v: string) => void; onClear: () => void }) {
@@ -520,7 +494,7 @@ function Sidebar({ filters, onChange, onClear }: { filters: Filters; onChange: (
         alignSelf: 'flex-start',
         background: 'white',
         borderRadius: 16,
-        border: '0.5px solid rgba(196,168,130,0.2)',
+        border: '0.5px solid rgba(201,160,192,0.2)',
         padding: '1.25rem 1rem',
         display: 'flex',
         flexDirection: 'column',
@@ -568,7 +542,6 @@ function Sidebar({ filters, onChange, onClear }: { filters: Filters; onChange: (
       <FilterGroup label="Medium"   options={MEDIUMS}   selected={filters.medium}   onChange={(v) => onChange('medium', v)}   />
       <FilterGroup label="Level"    options={LEVELS}    selected={filters.level}    onChange={(v) => onChange('level', v)}    />
       <FilterGroup label="Format"   options={FORMATS}   selected={filters.format}   onChange={(v) => onChange('format', v)}   />
-      <FilterGroup label="Duration" options={DURATIONS} selected={filters.duration} onChange={(v) => onChange('duration', v)} />
     </aside>
   )
 }
@@ -577,7 +550,7 @@ function Sidebar({ filters, onChange, onClear }: { filters: Filters; onChange: (
 
 export default function CoursesPage() {
   const [search, setSearch] = useState('')
-  const [filters, setFilters] = useState<Filters>({ medium: 'All', level: 'All', format: 'All', duration: 'All' })
+  const [filters, setFilters] = useState<Filters>({ medium: 'All', level: 'All', format: 'All' })
   const [isDesktop, setIsDesktop] = useState(() => typeof window !== 'undefined' && window.innerWidth >= 900)
   const [isLoading, setIsLoading] = useState(true)
 
@@ -599,7 +572,7 @@ export default function CoursesPage() {
     setFilters((f) => ({ ...f, [key]: value }))
 
   const clearFilters = () =>
-    setFilters({ medium: 'All', level: 'All', format: 'All', duration: 'All' })
+    setFilters({ medium: 'All', level: 'All', format: 'All' })
 
   const filtered = useMemo(() => {
     return COURSES.filter((c) => {
@@ -607,7 +580,6 @@ export default function CoursesPage() {
       if (filters.medium   !== 'All' && c.medium   !== filters.medium)   return false
       if (filters.level    !== 'All' && c.level    !== filters.level)    return false
       if (filters.format   !== 'All' && c.format   !== filters.format)   return false
-      if (filters.duration !== 'All' && getDuration(c.hours) !== filters.duration) return false
       return true
     })
   }, [search, filters])
@@ -679,8 +651,44 @@ export default function CoursesPage() {
               lineHeight: 1.6,
             }}
           >
-            Watercolour · Acrylics · Sketching — for every level, at your own pace.
+            Aari Embroidery · Fabric Painting · Silk Thread Jewellery · Mehndi · Artificial Flowers — beginner friendly, step-by-step guidance.
           </motion.p>
+
+          {/* YouTube free classes CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.12 }}
+            style={{ marginBottom: '1.5rem' }}
+          >
+            <a
+              href="https://www.youtube.com/channel/UCrEWvq9rL7-4Wn6OEhBdw5g"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                padding: '0.55rem 1.25rem',
+                borderRadius: 20,
+                background: 'rgba(255,0,0,0.07)',
+                border: '0.5px solid rgba(255,0,0,0.3)',
+                fontFamily: '"DM Sans", sans-serif',
+                fontSize: 14,
+                fontWeight: 500,
+                color: '#CC0000',
+                textDecoration: 'none',
+                transition: 'background 0.2s ease',
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,0,0,0.13)' }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,0,0,0.07)' }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#CC0000" aria-hidden="true">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+              Watch Free Classes on YouTube
+            </a>
+          </motion.div>
 
           {/* Search bar */}
           <motion.div
@@ -720,7 +728,7 @@ export default function CoursesPage() {
                   color: 'var(--color-brand-dark)',
                   outline: 'none',
                   boxSizing: 'border-box',
-                  boxShadow: '0 2px 12px rgba(61,43,31,0.06)',
+                  boxShadow: '0 2px 12px rgba(74,42,88,0.07)',
                 }}
               />
             </div>
@@ -748,7 +756,6 @@ export default function CoursesPage() {
               <ChipRow label="Medium"   options={MEDIUMS}   selected={filters.medium}   onChange={(v) => setFilter('medium', v)}   />
               <ChipRow label="Level"    options={LEVELS}    selected={filters.level}    onChange={(v) => setFilter('level', v)}    />
               <ChipRow label="Format"   options={FORMATS}   selected={filters.format}   onChange={(v) => setFilter('format', v)}   />
-              <ChipRow label="Duration" options={DURATIONS} selected={filters.duration} onChange={(v) => setFilter('duration', v)} />
             </div>
             {Object.values(filters).some((v) => v !== 'All') && (
               <button

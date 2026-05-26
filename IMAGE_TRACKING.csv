@@ -1,0 +1,13 @@
+Image File,File Type,Current Location,Size,Status,Used In File,Component/Section,Replacement,Priority
+Aari Embroidery.png,PNG,/images/,Unknown,✅ Active,CoursesPage.tsx + HomePage.tsx,Course Card + Featured Section,Course 1 Image,High
+Fabric Painting.png,PNG,/images/,Unknown,✅ Active,CoursesPage.tsx + HomePage.tsx,Course Card + Featured Section,Course 2 Image,High
+Silk Thread Jewellery.png,PNG,/images/,Unknown,✅ Active,CoursesPage.tsx + HomePage.tsx,Course Card + Featured Section,Course 3 Image,High
+Mehndi.png,PNG,/images/,Unknown,✅ Active,CoursesPage.tsx + HomePage.tsx,Course Card + Featured Section,Course 4 Image,High
+Artificial Flowers Making.png,PNG,/images/,Unknown,✅ Active,CoursesPage.tsx,Course Card Grid,Course 5 Image,High
+image3.jpg,JPG,/images/,Unknown,Unused,N/A,N/A,Gallery/Portfolio,Medium
+image5.jpg,JPG,/images/,Unknown,Unused,N/A,N/A,Gallery/Portfolio,Medium
+image6.jpg,JPG,/images/,Unknown,Unused,N/A,N/A,Gallery/Portfolio,Medium
+image7.jpg,JPG,/images/,Unknown,Unused,N/A,N/A,Gallery/Portfolio,Medium
+image8.jpg,JPG,/images/,Unknown,Unused,N/A,N/A,Gallery/Portfolio,Medium
+Inbaaacademy logo.png,PNG,/images/,Unknown,✅ Logo,Logo.tsx + Footer.tsx + Navbar.tsx,Branding/Logo,Full Academy Logo,High
+name only logo.png,PNG,/images/,Unknown,✅ Logo,Logo.tsx,Compact Branding,Name only variant,Medium
