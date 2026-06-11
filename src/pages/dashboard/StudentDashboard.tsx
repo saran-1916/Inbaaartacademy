@@ -415,6 +415,42 @@ export default function StudentDashboard() {
           🎨 You're previewing the Student Dashboard in demo mode. Real data will appear after enrollment.
         </div>
 
+        <section style={{ marginBottom: '3rem' }}>
+          <h2
+            style={{
+              fontFamily: '"Cormorant Garamond", Georgia, serif',
+              fontSize: '1.6rem',
+              fontWeight: 600,
+              color: 'var(--color-brand-dark)',
+              letterSpacing: '0.02em',
+              marginBottom: 0,
+            }}
+          >
+            Featured Video Lesson
+          </h2>
+          <BrushDivider />
+          <div
+            style={{
+              position: 'relative',
+              paddingTop: '56.25%',
+              overflow: 'hidden',
+              borderRadius: 8,
+              background: 'var(--color-brand-dark)',
+              border: '1px solid var(--color-brand-secondary)',
+              boxShadow: '0 12px 30px rgba(74, 42, 88, 0.12)',
+            }}
+          >
+            <iframe
+              src="https://player.mediadelivery.net/embed/681149/9acc723c-b820-4a27-9573-ebc7709722d4?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
+              title="Featured video lesson"
+              loading="lazy"
+              allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen"
+              allowFullScreen
+              style={{ border: 0, position: 'absolute', inset: 0, width: '100%', height: '100%' }}
+            />
+          </div>
+        </section>
+
         {/* ── Section 1: Continue Where You Left Off ── */}
         <section style={{ marginBottom: '3rem' }}>
           <h2

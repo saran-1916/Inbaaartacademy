@@ -149,9 +149,22 @@ export default function Login() {
   const [tab, setTab] = useState<'student' | 'admin'>('student')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [loginError, setLoginError] = useState('')
 
-  const handleStudentLogin = () => navigate('/dashboard/student')
-  const handleAdminLogin = () => navigate('/dashboard/admin')
+  const demoPassword = import.meta.env.VITE_DEMO_PASSWORD || 'inbaa123'
+
+  const handleLogin = (destination: '/dashboard/student' | '/dashboard/admin') => {
+    if (password !== demoPassword) {
+      setLoginError('Incorrect password. Please try again.')
+      return
+    }
+
+    setLoginError('')
+    navigate(destination)
+  }
+
+  const handleStudentLogin = () => handleLogin('/dashboard/student')
+  const handleAdminLogin = () => handleLogin('/dashboard/admin')
 
   return (
     <div style={{ display: 'flex', minHeight: '100vh', fontFamily: '"DM Sans", sans-serif' }}>
