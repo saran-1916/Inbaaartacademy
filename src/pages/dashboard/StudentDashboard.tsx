@@ -426,29 +426,64 @@ export default function StudentDashboard() {
               marginBottom: 0,
             }}
           >
-            Featured Video Lesson
+            Video Sessions
           </h2>
           <BrushDivider />
-          <div
-            style={{
-              position: 'relative',
-              paddingTop: '56.25%',
-              overflow: 'hidden',
-              borderRadius: 8,
-              background: 'var(--color-brand-dark)',
-              border: '1px solid var(--color-brand-secondary)',
-              boxShadow: '0 12px 30px rgba(74, 42, 88, 0.12)',
-            }}
-          >
-            <iframe
-              src="https://player.mediadelivery.net/embed/681149/9acc723c-b820-4a27-9573-ebc7709722d4?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
-              title="Featured video lesson"
-              loading="lazy"
-              allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen"
-              allowFullScreen
-              style={{ border: 0, position: 'absolute', inset: 0, width: '100%', height: '100%' }}
-            />
-          </div>
+          {[
+            {
+              label: 'Session 1',
+              title: 'Featured video lesson',
+              src: 'https://player.mediadelivery.net/embed/681149/9acc723c-b820-4a27-9573-ebc7709722d4?autoplay=false&loop=false&muted=false&preload=true&responsive=true',
+              allow: 'accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen',
+            },
+            {
+              label: 'Session 2',
+              title: 'Henna class day 01',
+              src: 'https://player.vimeo.com/video/1200159133?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479',
+              allow: 'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share',
+            },
+            {
+              label: 'Session 3',
+              title: 'Introduction to Basic Henna Elements',
+              src: 'https://player.vimeo.com/video/1200156253?title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479',
+              allow: 'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share',
+            },
+          ].map((session) => (
+            <div key={session.label} style={{ marginBottom: '2rem' }}>
+              <h3
+                style={{
+                  fontFamily: '"DM Sans", sans-serif',
+                  fontSize: '1rem',
+                  fontWeight: 600,
+                  color: 'var(--color-brand-dark)',
+                  marginBottom: '0.75rem',
+                }}
+              >
+                {session.label}
+              </h3>
+              <div
+                style={{
+                  position: 'relative',
+                  paddingTop: '56.25%',
+                  overflow: 'hidden',
+                  borderRadius: 8,
+                  background: 'var(--color-brand-dark)',
+                  border: '1px solid var(--color-brand-secondary)',
+                  boxShadow: '0 12px 30px rgba(74, 42, 88, 0.12)',
+                }}
+              >
+                <iframe
+                  src={session.src}
+                  title={session.title}
+                  loading="lazy"
+                  allow={session.allow}
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                  style={{ border: 0, position: 'absolute', inset: 0, width: '100%', height: '100%' }}
+                />
+              </div>
+            </div>
+          ))}
         </section>
 
         {/* ── Section 1: Continue Where You Left Off ── */}
